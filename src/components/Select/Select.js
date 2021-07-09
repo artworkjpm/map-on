@@ -2,7 +2,10 @@ import React from "react";
 import "./select.scss";
 
 export default function Select(props) {
-	const { title } = props;
+	const { title, data } = props;
+	if (data) {
+		console.log(data);
+	}
 
 	function handleChange(event) {}
 
@@ -10,7 +13,14 @@ export default function Select(props) {
 		<div className="select-wrapper">
 			<label>{title}*</label>
 			<select onChange={handleChange}>
-				<option value="grapefruit">Grapefruit</option>
+				{data &&
+					data.map((item) => {
+						return (
+							<option key={item.unit_id} value={item.number}>
+								{item.number}
+							</option>
+						);
+					})}
 			</select>
 		</div>
 	);

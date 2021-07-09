@@ -7,11 +7,11 @@ function App() {
 	const [carList, setCarList] = useState();
 
 	return (
-		<CarContext.Provider value={{ setCarList }}>
+		<CarContext.Provider value={{ carList, setCarList }}>
 			<div className="main-wrapper">
 				<img src="/images/mapon-colour.svg" alt="" />
 				<div className="window">
-					<Window carList={carList} />
+					<Window />
 				</div>
 			</div>
 		</CarContext.Provider>

@@ -4,9 +4,8 @@ import { getCars } from "../../services/service";
 import Select from "../Select/Select";
 import "./window.scss";
 
-export default function Window(props) {
-	const { setCarList } = useContext(CarContext);
-	const { carList } = props;
+export default function Window() {
+	const { carList, setCarList } = useContext(CarContext);
 
 	useEffect(() => {
 		getCars()

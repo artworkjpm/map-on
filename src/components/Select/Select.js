@@ -7,7 +7,9 @@ export default function Select(props) {
 		console.log(data);
 	}
 
-	function handleChange(event) {}
+	function handleChange(event) {
+		console.log(event.target.value);
+	}
 
 	return (
 		<div className="select-wrapper">

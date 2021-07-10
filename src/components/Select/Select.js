@@ -11,7 +11,10 @@ export default function Select(props) {
 
 	return (
 		<div className="select-wrapper">
-			<label>{title}*</label>
+			<label>
+				{title}
+				<span>*</span>
+			</label>
 			<select onChange={handleChange}>
 				{data &&
 					data.map((item) => {

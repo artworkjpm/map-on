@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { CarContext } from "../../context/CarContext";
 import { getCars } from "../../services/service";
+import DatePicker from "../DatePicker/DatePicker";
 import Select from "../Select/Select";
 import "./window.scss";
 
@@ -19,6 +20,7 @@ export default function Window() {
 		<div className="window-wrapper">
 			<h1>Route Report</h1>
 			<Select title="Vehicle number" data={carList} />
+			<DatePicker />
 		</div>
 	);
 }

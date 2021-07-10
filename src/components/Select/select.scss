@@ -1,8 +1,15 @@
 .select-wrapper {
 	display: grid;
-	grid-template-columns: auto auto;
+	grid-template-columns: 200px auto;
+	grid-gap: 10px;
+	margin-bottom: 20px;
+	margin-right: 8px;
 }
 
 label {
 	padding-top: 10px;
+	span {
+		color: red;
+		font-size: 18px;
+	}
 }

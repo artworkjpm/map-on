@@ -1,0 +1,12 @@
+.date-wrapper {
+	display: grid;
+	grid-template-columns: 200px auto auto;
+	grid-gap: 10px;
+
+	input {
+		margin-top: 5px;
+	}
+	label {
+		padding-top: 10px;
+	}
+}

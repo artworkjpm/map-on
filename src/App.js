@@ -1,7 +1,7 @@
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import "./App.scss";
-import Window from "./components/Window/Window";
 import Button from "./components/Button/Button";
+import Window from "./components/Window/Window";
 import { CarContext } from "./context/CarContext";
 import { getRoute } from "./services/service";
 

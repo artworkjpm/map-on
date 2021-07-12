@@ -11,10 +11,9 @@ function App() {
 	const [to, setTo] = useState();
 
 	function handleGetRoute() {
-		const fromx = new Date(from).toISOString().replace(/.\d+Z$/g, "Z");
-		const tillx = new Date(to).toISOString().replace(/.\d+Z$/g, "Z");
-
-		getRoute(fromx, tillx)
+		setFrom(new Date(from).toISOString().replace(/.\d+Z$/g, "Z"));
+		setTo(new Date(to).toISOString().replace(/.\d+Z$/g, "Z"));
+		getRoute(from, to)
 			.then((res) => {
 				console.log(from);
 				console.log(res);

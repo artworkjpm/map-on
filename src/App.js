@@ -7,12 +7,14 @@ import { getRoute } from "./services/service";
 
 function App() {
 	const [carList, setCarList] = useState();
+	const [from, setFrom] = useState();
+	const [to, setTo] = useState();
 
 	function handleGetRoute() {
-		const from = new Date("20-JUN-2021").toISOString().replace(/.\d+Z$/g, "Z");
-		const till = new Date("21-JUN-2021").toISOString().replace(/.\d+Z$/g, "Z");
+		const fromx = new Date(from).toISOString().replace(/.\d+Z$/g, "Z");
+		const tillx = new Date(to).toISOString().replace(/.\d+Z$/g, "Z");
 
-		getRoute(from, till)
+		getRoute(fromx, tillx)
 			.then((res) => {
 				console.log(from);
 				console.log(res);
@@ -21,11 +23,11 @@ function App() {
 	}
 
 	return (
-		<CarContext.Provider value={{ carList, setCarList }}>
+		<CarContext.Provider value={{ carList, setCarList, setFrom, setTo }}>
 			<div className="main-wrapper">
 				<img src="/images/mapon-colour.svg" alt="" />
 				<Window />
-				<Button handleGetRoute={handleGetRoute} />
+				<Button handleGetRoute={handleGetRoute} disabled={!from || !to} />
 			</div>
 		</CarContext.Provider>
 	);

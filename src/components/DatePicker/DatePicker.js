@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CarContext } from "../../context/CarContext";
 import "./datepicker.scss";
 
 export default function DatePicker() {
-	function handleChange(event) {
-		console.log(event.target.value);
+	const { setFrom, setTo } = useContext(CarContext);
+
+	function handleFrom(event) {
+		setFrom(event.target.value);
+	}
+	function handleTo(event) {
+		setTo(event.target.value);
 	}
 	return (
 		<div className="date-wrapper">
@@ -13,11 +19,11 @@ export default function DatePicker() {
 
 			<div>
 				<label>From</label>
-				<input type="date" id="from" name="from" onChange={handleChange} />
+				<input type="date" id="from" name="from" onChange={handleFrom} />
 			</div>
 			<div>
 				<label>To</label>
-				<input type="date" id="to" name="to" onChange={handleChange}></input>
+				<input type="date" id="to" name="to" onChange={handleTo}></input>
 			</div>
 		</div>
 	);

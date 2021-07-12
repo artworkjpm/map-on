@@ -6,10 +6,10 @@ export default function DatePicker() {
 	const { setFrom, setTo } = useContext(CarContext);
 
 	function handleFrom(event) {
-		setFrom(event.target.value);
+		setFrom(new Date(event.target.value).toISOString().replace(/.\d+Z$/g, "Z"));
 	}
 	function handleTo(event) {
-		setTo(event.target.value);
+		setTo(new Date(event.target.value).toISOString().replace(/.\d+Z$/g, "Z"));
 	}
 	return (
 		<div className="date-wrapper">

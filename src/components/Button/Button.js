@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function Button({ handleGetRoute, disabled }) {
+export default function Button({ handleClick, disabled, title }) {
 	return (
 		<div>
-			<button onClick={handleGetRoute} disabled={disabled}>
-				GENERATE
+			<button onClick={handleClick} disabled={disabled}>
+				{title}
 			</button>
 		</div>
 	);

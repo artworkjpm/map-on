@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import "./App.scss";
 import Window from "./components/Window/Window";
 import Button from "./components/Button/Button";
@@ -11,8 +11,6 @@ function App() {
 	const [to, setTo] = useState();
 
 	function handleGetRoute() {
-		setFrom(new Date(from).toISOString().replace(/.\d+Z$/g, "Z"));
-		setTo(new Date(to).toISOString().replace(/.\d+Z$/g, "Z"));
 		getRoute(from, to)
 			.then((res) => {
 				console.log(from);
@@ -26,7 +24,7 @@ function App() {
 			<div className="main-wrapper">
 				<img src="/images/mapon-colour.svg" alt="" />
 				<Window />
-				<Button handleGetRoute={handleGetRoute} disabled={!from || !to} />
+				<Button handleClick={handleGetRoute} disabled={!from || !to} title="GENERATE" />
 			</div>
 		</CarContext.Provider>
 	);

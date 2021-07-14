@@ -1,19 +1,16 @@
-import React, { Component } from "react";
+import React, { useEffect, useContext } from "react";
+import { CarContext } from "../../context/CarContext";
 
-export default class GoogleMaps extends Component {
-	componentDidMount() {
+export default function GoogleMaps() {
+	const { routes, center } = useContext(CarContext);
+
+	function setup() {
 		const map = new window.google.maps.Map(document.getElementById("map"), {
-			zoom: 3,
-			center: { lat: 0, lng: -180 },
+			zoom: 10,
+			center: center,
 			mapTypeId: "terrain",
 			disableDefaultUI: true,
 		});
-		const carRoutes = [
-			{ lat: 37.772, lng: -122.214 },
-			{ lat: 21.291, lng: -157.821 },
-			{ lat: -18.142, lng: 178.431 },
-			{ lat: -27.467, lng: 153.027 },
-		];
 
 		const start = new window.google.maps.Marker({
 			position: { lat: -27.467, lng: 153.027 },
@@ -28,17 +25,22 @@ export default class GoogleMaps extends Component {
 		start.setMap(map);
 		end.setMap(map);
 
+		console.log(routes);
+
 		const carPath = new window.google.maps.Polyline({
-			path: carRoutes,
+			path: routes,
 			geodesic: true,
 			strokeColor: "#FF0000",
 			strokeOpacity: 1.0,
 			strokeWeight: 2,
 		});
+
 		carPath.setMap(map);
 	}
 
-	render() {
-		return <div className="gmaps" id="map" />;
-	}
+	useEffect(() => {
+		routes && setup();
+	}, [routes]);
+
+	return <div className="gmaps" id="map" />;
 }

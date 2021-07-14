@@ -8,7 +8,6 @@ import { getRoute } from "./services/service";
 
 function App() {
 	const [carList, setCarList] = useState();
-	const [center, setCenter] = useState();
 	const [selectedCar, setSelectedCar] = useState();
 	const [from, setFrom] = useState();
 	const [to, setTo] = useState();
@@ -33,7 +32,7 @@ function App() {
 	}, [selectedCar, handleGetRoute, hasClicked]);
 
 	return (
-		<CarContext.Provider value={{ carList, setCarList, setFrom, setTo, selectedCar, setSelectedCar, routes, setRoutes, center, setCenter }}>
+		<CarContext.Provider value={{ carList, setCarList, setFrom, setTo, selectedCar, setSelectedCar, routes, setRoutes }}>
 			<div className="main-wrapper">
 				<img src="/images/mapon-colour.svg" alt="" />
 				<Window />

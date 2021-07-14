@@ -7,7 +7,7 @@ export default function GoogleMaps() {
 	const setup = useCallback(() => {
 		const map = new window.google.maps.Map(document.getElementById("map"), {
 			zoom: 10,
-			center: center,
+			center: routes[0],
 			mapTypeId: "terrain",
 			disableDefaultUI: true,
 		});

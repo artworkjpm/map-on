@@ -13,7 +13,7 @@ export default function GoogleMaps() {
 		});
 
 		const image = {
-			url: "/Images/Group.svg", // image is 512 x 512
+			url: "/Images/Group.svg",
 			scaledSize: new window.google.maps.Size(40, 40),
 		};
 

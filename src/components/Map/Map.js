@@ -32,8 +32,6 @@ export default function GoogleMaps() {
 		start.setMap(map);
 		end.setMap(map);
 
-		console.log(routes);
-
 		const carPath = new window.google.maps.Polyline({
 			path: routes,
 			geodesic: true,

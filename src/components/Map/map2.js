@@ -4,7 +4,7 @@ import { CarContext } from "../../context/CarContext";
 
 function GoogleMaps() {
 	const { routes, center } = useContext(CarContext);
-	console.log(routes);
+	routes;
 	/* 
 	if (routes) {
 		setCenter({
@@ -23,7 +23,7 @@ function GoogleMaps() {
 	];
 
 	const handleApiLoaded = (map, maps) => {
-		console.log(map, maps);
+		map, maps;
 	};
 
 	return (

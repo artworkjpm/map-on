@@ -2,7 +2,7 @@ import React, { useEffect, useContext, useCallback } from "react";
 import { CarContext } from "../../context/CarContext";
 
 export default function GoogleMaps() {
-	const { routes, center } = useContext(CarContext);
+	const { routes } = useContext(CarContext);
 
 	const setup = useCallback(() => {
 		const map = new window.google.maps.Map(document.getElementById("map"), {
@@ -41,7 +41,7 @@ export default function GoogleMaps() {
 		});
 
 		carPath.setMap(map);
-	}, [routes, center]);
+	}, [routes]);
 
 	useEffect(() => {
 		routes && setup();

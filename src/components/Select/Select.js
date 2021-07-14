@@ -4,19 +4,16 @@ import "./select.scss";
 
 export default function Select(props) {
 	const { title, data } = props;
-	const { setSelectedCar, setCenter } = useContext(CarContext);
+	const { setSelectedCar } = useContext(CarContext);
 
 	useEffect(() => {
 		if (data) {
 			setSelectedCar(data[0].unit_id);
-			setCenter({ lat: data[0].lat, lng: data[0].lng });
 		}
-	}, [data, setSelectedCar, setCenter]);
+	}, [data, setSelectedCar]);
 
 	function handleChange(event) {
 		setSelectedCar(event.target.value);
-		const newCenter = data.filter((item) => item.unit_id === Number(event.target.value));
-		setCenter({ lat: newCenter[0].lat, lng: newCenter[0].lng });
 	}
 
 	return (

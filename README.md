@@ -4,18 +4,19 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Details
 
-Good points:
+### Good points:
 
 Showing the map and the route.
 Using React hooks.
 Using ContextAPI to handle state.
 I got Google maps working using my own api key, your api key didn't work. Please don't abuse my api key.
 
-Confusion:
+### Confusion:
 
 To use "routes" or "stops". If I use "routes" there are multiple routs to show.
 
-Bad points:
+### Bad points:
+
 I ran out of time to do unit tests, but I would have put utility functions into their own place and test those with jest and react testing library.
 I didn't get round to using the average KMs, Driving time, etc.
 

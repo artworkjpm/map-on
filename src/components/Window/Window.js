@@ -11,6 +11,7 @@ export default function Window() {
 	useEffect(() => {
 		getCars()
 			.then((res) => {
+				console.log(res.data.data.units);
 				setCarList(res.data.data.units);
 			})
 			.catch((err) => console.error(`Error: ${err}`));

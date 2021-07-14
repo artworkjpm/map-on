@@ -7,6 +7,6 @@ export function getCars() {
 	return axios.get(`${url}unit/list.json?key=${apikey}`);
 }
 
-export function getRoute(from, till) {
-	return axios.get(`${url}route/list.json?key=${apikey}&from=${from}&till=${till}`);
+export function getRoute(from, till, unit_id) {
+	return axios.get(`${url}route/list.json?key=${apikey}&from=${from}&till=${till}&unit_id=${unit_id}`);
 }

@@ -29,7 +29,8 @@ function App() {
 			<div className="main-wrapper">
 				<img src="/images/mapon-colour.svg" alt="" />
 				<Window />
-				<GoogleMaps />
+				{center && <GoogleMaps />}
+
 				<Button handleClick={handleGetRoute} disabled={!from || !to} title="GENERATE" />
 			</div>
 		</CarContext.Provider>

@@ -1,28 +1,44 @@
-import GoogleMapReact from "google-map-react";
-import React, { useContext } from "react";
-import { CarContext } from "../../context/CarContext";
+import React, { Component } from "react";
 
-function GoogleMaps() {
-	const { routes, center } = useContext(CarContext);
-	console.log(routes);
-	/* 
-	if (routes) {
-		setCenter({
-			lat: 59.95,
-			lng: 30.33,
+export default class GoogleMaps extends Component {
+	componentDidMount() {
+		const map = new window.google.maps.Map(document.getElementById("map"), {
+			zoom: 3,
+			center: { lat: 0, lng: -180 },
+			mapTypeId: "terrain",
+			disableDefaultUI: true,
 		});
-	} */
+		const carRoutes = [
+			{ lat: 37.772, lng: -122.214 },
+			{ lat: 21.291, lng: -157.821 },
+			{ lat: -18.142, lng: 178.431 },
+			{ lat: -27.467, lng: 153.027 },
+		];
 
-	const handleApiLoaded = (map, maps) => {
-		console.log(map, maps);
-	};
+		const start = new window.google.maps.Marker({
+			position: { lat: -27.467, lng: 153.027 },
+			map,
+		});
 
-	return (
-		// Important! Always set the container height explicitly
-		<div className="gmaps">
-			<GoogleMapReact bootstrapURLKeys={{ key: "AIzaSyBh0mTqFD09A-jKgnpOw5_6mpL8qvGiOMA" }} center={center} defaultZoom={11} yesIWantToUseGoogleMapApiInternals onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}></GoogleMapReact>
-		</div>
-	);
+		const end = new window.google.maps.Marker({
+			position: { lat: 37.772, lng: -122.214 },
+			map,
+		});
+
+		start.setMap(map);
+		end.setMap(map);
+
+		const carPath = new window.google.maps.Polyline({
+			path: carRoutes,
+			geodesic: true,
+			strokeColor: "#FF0000",
+			strokeOpacity: 1.0,
+			strokeWeight: 2,
+		});
+		carPath.setMap(map);
+	}
+
+	render() {
+		return <div className="gmaps" id="map" />;
+	}
 }
-
-export default GoogleMaps;

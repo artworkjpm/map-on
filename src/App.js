@@ -18,14 +18,11 @@ function App() {
 	const handleGetRoute = useCallback(() => {
 		getRoute(from, to, selectedCar)
 			.then((res) => {
-				console.log(res.data.data.units[0].routes);
 				let a = res.data.data.units[0].routes;
 				let b = [];
 				a.filter((item) => item.type === "stop").forEach((element) => {
 					b.push({ lat: element.start.lat, lng: element.start.lng });
 				});
-
-				console.log(b);
 				setRoutes(b);
 			})
 			.catch((err) => console.error(`Error: ${err}`));
@@ -41,7 +38,6 @@ function App() {
 				<img src="/images/mapon-colour.svg" alt="" />
 				<Window />
 				{hasClicked && <GoogleMaps />}
-
 				<Button handleClick={(handleGetRoute, () => setHasClicked(true))} disabled={!from || !to} title="GENERATE" />
 			</div>
 		</CarContext.Provider>
